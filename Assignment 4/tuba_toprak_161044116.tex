@@ -1,0 +1,273 @@
+\documentclass[a4 paper]{article}
+\usepackage[inner=2.0cm,outer=2.0cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage{setspace}
+\usepackage[rgb]{xcolor}
+\usepackage{verbatim}
+\usepackage{subcaption}
+\usepackage{amsgen,amsmath,amstext,amsbsy,amsopn,tikz,amssymb}
+\usepackage[colorlinks=true, urlcolor=blue,  linkcolor=blue, citecolor=blue]{hyperref}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{rotating}
+\usepackage{booktabs}
+\newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{rem}[thm]{Remark}
+\numberwithin{equation}{section}
+
+\newcommand{\homework}[6]{
+   \pagestyle{myheadings}
+   \thispagestyle{plain}
+   \newpage
+   \setcounter{page}{1}
+   \noindent
+   \begin{center}
+   \framebox{
+      \vbox{\vspace{2mm}
+    \hbox to 6.28in { {\bf CSE 211:~Discrete Mathematics \hfill {\small (#2)}} }
+       \vspace{6mm}
+       \hbox to 6.28in { {\Large \hfill #1  \hfill} }
+       \vspace{6mm}
+       \hbox to 6.28in { {\it Instructor: {\rm #3} \hfill Name:TUBA TOPRAK {\rm #5} \hfill Student Id: 161044116{\rm #6}} \hfill}
+       \hbox to 6.28in { {\it Assistant: #4  \hfill #6}}
+      \vspace{2mm}}
+   }
+   \end{center}
+   \markboth{#5 -- #1}{#5 -- #1}
+   \vspace*{4mm}
+}
+
+\newcommand{\problem}[2]{~\\\fbox{\textbf{Problem #1}}\hfill (#2 points)\newline\newline}
+\newcommand{\subproblem}[1]{~\newline\textbf{(#1)}}
+\newcommand{\D}{\mathcal{D}}
+\newcommand{\Hy}{\mathcal{H}}
+\newcommand{\VS}{\textrm{VS}}
+\newcommand{\solution}{~\newline\textbf{\textit{(Solution)}} }
+
+\newcommand{\bbF}{\mathbb{F}}
+\newcommand{\bbX}{\mathbb{X}}
+\newcommand{\bI}{\mathbf{I}}
+\newcommand{\bX}{\mathbf{X}}
+\newcommand{\bY}{\mathbf{Y}}
+\newcommand{\bepsilon}{\boldsymbol{\epsilon}}
+\newcommand{\balpha}{\boldsymbol{\alpha}}
+\newcommand{\bbeta}{\boldsymbol{\beta}}
+\newcommand{\0}{\mathbf{0}}
+
+
+\begin{document}
+\homework{Homework \#4}{Due: 17/01/21}{Dr. Zafeirakis Zafeirakopoulos}{Gizem S\"ung\"u}{}{}
+\textbf{Course Policy}: Read all the instructions below carefully before you start working on the assignment, and before you make a submission.
+\begin{itemize}
+	\item It is not a group homework. Do not share your answers to anyone in any circumstance. Any cheating means at least -100 for both sides. 
+	\item Do not take any information from Internet.
+	\item No late homework will be accepted. 
+	\item For any questions about the homework, send an email to gizemsungu@gtu.edu.tr
+	\item The homeworks (both latex and pdf files in a zip file) will be
+	submitted into the course page of Moodle.
+	\item The latex, pdf and zip files of the homeworks should be saved as
+	"Name\_Surname\_StudentId".$\{$tex, pdf, zip$\}$.
+	\item If the answers of the homeworks have only calculations without any formula or any explanation -when needed- will get zero.
+	\item Writing the homeworks on Latex is strongly suggested. However, hand-written paper is still accepted $\textbf{IFF}$ hand writing of the student is clear and understandable to read, and the paper is well-organized. Otherwise, the assistant cannot grade the student's homework.
+\end{itemize}
+
+\problem{1}{15+15=30}
+Consider the nonhomogeneous linear recurrence relation $a_n$ = 3$a_{n-1}$ + $2^n$ .\\
+\subproblem{a} Show that whether $a_n$ = $-2^{n+1}$ is a solution of the given recurrence relation or not. Show your work step by step.
+\solution
+\newline
+\newline
+$a_n$ = $-2^{n+1}$
+\newline
+$a_{n-1}$ = $-2^{(n-1)+1}$
+\newline
+$a_{n-1}$ = $-2^{n}$
+\newline
+Now, we can write the expression of $a_{n-1}$ to check that $a_n$ = $-2^{n+1}$ is a solution of our recurrence relation or not.
+\newline
+$a_n$ = $3a_{n-1} + 2^n$
+\newline
+$a_n$ = $3(-2^n) + 2^n$
+\newline
+$a_n$ = $-2.2^n$
+\newline
+$a_n$ = $-2^{n+1}$
+\newline
+Then we can say that, $a_n$ = $-2^{n+1}$ is a solution of the $a_n$ = $3a_{n-1} + 2^n$
+\newline
+\subproblem{b} Find the solution with $a_0$ = 1.
+\solution
+\newline
+It's a non-homogeneous recurrence relation, so we can define it like,
+\newline
+$a_n^{(g)}$ = $a_n^{(h)} + a_n^{(p)}$
+\newline
+Firstly we should find the homogeneous part to write the characteristic equation.
+\newline
+$a_{n-1} = 1$
+\newline
+$a_n = r$
+\newline
+$a_n$ = $3a_{n-1}$(homogeneous part of the given recurrence relation)
+\newline
+r = 3 (characteristic root)
+\newline
+$a_n^{(h)}$ = $c_1.3^n$
+\newline
+to find the particular part of the given recurrence relation,
+\newline
+$a_n^{(p)}$ = $A.2^n$
+\newline
+$a_{n-1}^{(p)}$ = $A.2^{n-1}$
+\newline
+$a_n$ = $3a_{n-1} + 2^n$ (The given recurrence relation)
+\newline
+$A.2^n$ = $3.A.2^{n-1} + 2^n$
+\newline
+= $((3.A)/2).2^n + 2^n$
+\newline
+$A.2^n$ = $2^n.(((3.A)/2)+1)$
+\newline
+$(((3.A)/2)+1)$ = A
+\newline
+2.A - 2 = 3.A
+\newline
+A = -2
+\newline
+$a_n^{(p)}$ = $A.2^n$ = $-2.2^n$ = $-2^{n+1}$
+\newline
+$a_n^{(g)}$ = $a_n^{(h)} + a_n^{(p)}$
+\newline
+$a_n^{(g)}$ = $c_1.3^n-2^{n+1}$
+\newline
+if $a_0 = 1$ then $a_0$ = $c_1-2$ = 1
+\newline
+$c_1$ = 3 so,
+\newline
+$a_n$ = $3^{n+1}-2^{n+1}$
+\newline
+\problem{2}{35}
+Solve the recurrence relation f(n) = 4f(n-1) - 4f(n-2) + $n^2$ for f(0) = 2 and f(1) = 5. 
+\solution
+\newline
+linear nonhomogeneous recurrence with constant coefficient
+\newline
+$f_n^{(g)}$ = $f_n^{(h)} + f_n^{(p)}$
+\newline
+$f_n^{(h)}$Associated homogeneous recurrence relation is an = 4f(n−1)- 4f(n−2). 
+\newline
+Characteristic equation: r 2 − 4r + 4 = 0  Factor. r 2 − 4r + 4 = 0
+\newline 
+(r − 2)(r − 2)= 0 r = 2
+\newline
+$f_n^{(h)} =c1(2)^{n}+ c2(2)^{n}.n$
+\newline
+$f_n^{(h)} =2^{n}(c1+c2.n)$
+\newline
+$f_n^{(p)} =n^{2}+8n+20$
+\newline
+$f_n^{(g)}$ = $f_n^{(h)} + f_n^{(p)}$
+\newline
+$f_n =2^{n}( c1+ c2.n) +n^{2}+8n+20 $
+\newline
+$f(0) =2^{0}( c1+ c2.0) +0^{2}+8.0+20 = 2 $
+\newline
+c1+20 = 2
+\newline
+c1 = -18
+ \newline
+$f(1) =2^{1}( c1+ c2.1) +1^{2}+8.1+20  = 5$
+ \newline
+ $f(1) =2(c1 +c2)+29  = 5 $
+ \newline
+  $f(1) =2(-18 +c2)+29  = 5 $
+  \newline
+  c2 = 6
+\newline
+$f_n =2^{n}( 6.n - 18) +n^{2}+8n+20 $
+\newpage
+\problem{3}{20+15 = 35}
+Consider the linear homogeneous recurrence relation $a_n$ = 2$a_{n-1}$ - 2$a_{n-2}$.
+\subproblem{a} Find the characteristic roots of the recurrence relation.
+\solution
+\newline
+It's homogeneous , so we can define it like this,
+\newline
+$a_n$ = $a_n^{(h)}$
+\newline
+To find the characteristic equation.
+\newline
+$a_{n-2}$ = 1
+\newline
+$a_{n-1}$ = r
+\newline
+$a_n$ = $r^2$
+\newline
+$a_n$ = 2$a_{n-1}$ - 2$a_{n-2}$ (The given recurrence relation)
+\newline
+$r^2$ = 2r-2
+\newline
+$r^2$-2r+2 = 0
+\newline
+We will use discriminant to find the characteristic roots.
+\newline
+$\Delta$ = $b^2$ - 4.a.c
+\newline
+$\Delta$ = $-2^2$ - 4.(1).(2) = 4 - 8 = -4
+\newline
+$\Delta$ $<$ 0 (It means that there is no root in real numbers)
+\newline
+$r_1$ = -b+$\sqrt\Delta$/(2.a) = -(-2)+$\sqrt-4$/(2.1) = 2+$\sqrt-4$/2 = (2 + 2i)/2 = 1 + i
+\newline
+$r_2$ = -b-$\sqrt\Delta$/(2.a) = -(-2)-$\sqrt-4$/(2.1) = 2-$\sqrt-4$/2 = (2 - 2i)/2 = 1 - i
+\newline
+The characteristic roots are 1 + i and 1 - i
+\newline
+\newline
+\subproblem{b} Find the solution of the recurrence relation with $a_0$ = 1 and $a_1$ = 2.
+\solution
+\newline
+We should write its general equation like this,
+\newline
+$a_n^{(h)}$ = $c_1$.$r_1^n$ + $c_2$.$r_2^n$ 
+\newline
+$a_n$ = $c_1$.$(1 + i)^n$ + $c_2$.$(1 - i)^n$ 
+\newline
+Now, we can use the $a_0$ = 1 and $a_1$ = 2 to find the values of $c_1$ and  $c_2$.
+\newline
+Let's start with $a_0$ = 1
+If n = 0, then $c_1$ + $c_2$ = 1.
+\newline
+for $a_1$ = 2
+\newline
+$a_n$ = $c_1.(1 + i)^n$ + $c_2.(1 - i)^n$
+\newline
+$a_1$ = $c_1 + i.c_1 + c_2 - i.c_2$ = 2
+\newline
+we already know that,
+\newline
+$c_1 + c_2$ = 1
+\newline
+1 + i($c_1 - c_2$) = 2
+\newline
+$c_1 - c_2$ = 1/i = $i^{-1}$
+\newline
+$c_1 + c_2$ = 1
+\newline
+$c_1 - c_2$ = $i^{-1}$
+\newline
+$2c_1$ = $1 + i^{-1}$ so $c_1$ = $(1 + i^{-1})/2$
+\newline
+$c_2$ = $1 - ((1 + i^{-1})/2)$ so $c_2$ = $(1 - i^{-1})/2$
+\newline
+As a conclusion, the solution of the recurrence relation with $a_0$ = 1 and $a_1$ = 2 is,
+\newline
+$a_n$=$((1 + i^{-1})/2)$.$(1 + i)^n$ + $((1 - i^{-1})/2)$.$(1 - i)^n$ 
+\newline
+\end{document} 
+
+
